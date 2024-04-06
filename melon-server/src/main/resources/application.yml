@@ -1,0 +1,84 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  #禁用索引功能，尝试解决swagger问题
+#  index:
+#    ignore: true
+#    目前暂时不使用druid连接池，因为会报错 Failed to determine a suitable driver class
+#    druid:
+
+  datasource:
+      driver-class-name: ${melon.datasource.driver-class-name}
+      url: jdbc:mysql://${melon.datasource.host}:${melon.datasource.port}/${melon.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: ${melon.datasource.username}
+      password: ${melon.datasource.password}
+
+  #data:
+  redis:
+    host: ${melon.redis.host}
+    port: ${melon.redis.port}
+    password: ${melon.redis.password}
+    database: ${melon.redis.database}
+    # 读超时
+    timeout: ${melon.redis.timeout}
+    # 连接超时
+    connectTimeout: ${melon.redis.connectTimeout}
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.qicai.entity
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com:
+      qicai:
+        mapper: debug
+        service: info
+        controller: info
+
+melon:
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    admin-secret-key: rjqicai
+    # 设置jwt过期时间
+    admin-ttl: 7200000
+    # 设置前端传递过来的令牌名称
+    admin-token-name: token
+    # 设置jwt签名加密时使用的秘钥
+    user-secret-key: rjqicai
+    # 设置jwt过期时间
+    user-ttl: 7200000
+    # 设置前端传递过来的令牌名称
+    user-token-name: token # authentication
+
+
+#  alioss:
+#    endpoint:${genius.alioss.endpoint}
+#    access-key-id:${genius.alioss.access-key-id}
+#    access-key-secret:${genius.alioss.access-key-secret}
+#    bucket-name:${genius.alioss.bucket-name}
+#  wechat:
+#    appid: ${genius.wechat.appid}
+#    secret: ${genius.wechat.secret}
+#  shop:
+#    address: ${genius.shop.address}
+#  baidu:
+#    ak: ${genius.baidu.ak}
+
+#knife4j:
+#  enable: true
+#  setting:
+#    language: zh_cn
