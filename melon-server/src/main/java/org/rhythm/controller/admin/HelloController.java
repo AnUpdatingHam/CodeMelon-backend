@@ -1,9 +1,11 @@
-package org.rhythm.controller;
+package org.rhythm.controller.admin;
 
 import org.rhythm.entity.User;
+import org.rhythm.properties.WenXinProperties;
 import org.rhythm.vo.UserLoginVO;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 //只是一个用于测试是否连通的controller

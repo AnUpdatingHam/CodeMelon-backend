@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "qicai.alioss")
+@ConfigurationProperties(prefix = "rhythm.alioss")
 @Data
 public class AliOssProperties {
 

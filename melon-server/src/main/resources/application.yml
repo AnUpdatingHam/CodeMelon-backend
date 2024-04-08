@@ -15,23 +15,26 @@ spring:
 #    ignore: true
 #    目前暂时不使用druid连接池，因为会报错 Failed to determine a suitable driver class
 #    druid:
+  wenxin:
+    apiKey: ${rhythm.wenxin.apiKey}
+    secretKey: ${rhythm.wenxin.secretKey}
 
   datasource:
-      driver-class-name: ${melon.datasource.driver-class-name}
-      url: jdbc:mysql://${melon.datasource.host}:${melon.datasource.port}/${melon.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
-      username: ${melon.datasource.username}
-      password: ${melon.datasource.password}
+      driver-class-name: ${rhythm.datasource.driver-class-name}
+      url: jdbc:mysql://${rhythm.datasource.host}:${rhythm.datasource.port}/${rhythm.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: ${rhythm.datasource.username}
+      password: ${rhythm.datasource.password}
 
   #data:
   redis:
-    host: ${melon.redis.host}
-    port: ${melon.redis.port}
-    password: ${melon.redis.password}
-    database: ${melon.redis.database}
+    host: ${rhythm.redis.host}
+    port: ${rhythm.redis.port}
+    password: ${rhythm.redis.password}
+    database: ${rhythm.redis.database}
     # 读超时
-    timeout: ${melon.redis.timeout}
+    timeout: ${rhythm.redis.timeout}
     # 连接超时
-    connectTimeout: ${melon.redis.connectTimeout}
+    connectTimeout: ${rhythm.redis.connectTimeout}
 
 mybatis:
   #mapper配置文件
@@ -49,7 +52,7 @@ logging:
         service: info
         controller: info
 
-melon:
+rhythm:
   jwt:
     # 设置jwt签名加密时使用的秘钥
     admin-secret-key: rjqicai
