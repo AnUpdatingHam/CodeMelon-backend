@@ -12,12 +12,6 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
-import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
 
 import java.util.List;
 
@@ -49,6 +43,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
  * @return
  */
 
+/*
     @Bean
     public Docket docket1() {
         log.info("准备生成管理端接口文档...");
@@ -61,7 +56,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
                 .groupName("管理端接口文档")
                 .apiInfo(apiInfo)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.qicai.controller.admin"))
+                .apis(RequestHandlerSelectors.basePackage("org.rhythm.controller.admin"))
                 .paths(PathSelectors.any())
                 .build();
         return docket;
@@ -79,29 +74,34 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
                 .groupName("用户端接口文档")
                 .apiInfo(apiInfo)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.qicai.controller.user"))
+                .apis(RequestHandlerSelectors.basePackage("org.rhythm.controller.user"))
                 .paths(PathSelectors.any())
                 .build();
         return docket;
     }
+
+ */
 
 /**
  * 设置静态资源映射
  * @param registry
  */
 
+/*
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         log.info("开始设置静态资源映射...");
         registry.addResourceHandler("/doc.html").addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 
+ */
+
 /**
  * 拓展Spring MVC框架的消息转化器
  * @param converters
  */
 
-
+/*
     @Override
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
         log.info("拓展消息转化器...");
@@ -112,4 +112,6 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
         //自己的消息转化器加入容器,优先级最高（0）
         converters.add(0,converter);
     }
+
+ */
 }

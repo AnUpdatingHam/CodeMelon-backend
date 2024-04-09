@@ -1,7 +1,7 @@
 package org.rhythm.vo;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,19 +13,19 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ApiModel(description = "员工登录返回的数据格式")
+@Tag(name = "用户登录VO", description = "用户登录返回的数据模型")
 public class UserLoginVO implements Serializable {
 
-    @ApiModelProperty("主键值")
+    @Schema(name = "主键值", type = "Long")
     private Long id;
 
-    @ApiModelProperty("用户名")
+    @Schema(name = "用户名", type = "String")
     private String username;
 
-    @ApiModelProperty("姓名")
+    @Schema(name = "姓名", type = "String")
     private String name;
 
-    @ApiModelProperty("jwt令牌")
+    @Schema(name = "Jwt令牌", type = "String")
     private String token;
 
 }

@@ -1,7 +1,7 @@
 package org.rhythm.vo;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,8 +11,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ApiModel(description = "AI模型返回的回答")
+@Tag(name = "问题VO", description = "AI模型返回的回答")
 public class QuestionVO {
-    @ApiModelProperty("回答")
+    @Schema(name = "回答", type = "String")
     private String answer;
 }
+

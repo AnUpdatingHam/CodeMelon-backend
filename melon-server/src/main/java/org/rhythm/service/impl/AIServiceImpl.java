@@ -50,7 +50,6 @@ public class AIServiceImpl implements AIService {
             String baseUrl = "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/eb-instant?access_token=" + access_token;
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("请输入问题 (输入 'exit' 退出程序):");
 
             HashMap<String, String> msg = new HashMap<>();
             msg.put("role", "user");
