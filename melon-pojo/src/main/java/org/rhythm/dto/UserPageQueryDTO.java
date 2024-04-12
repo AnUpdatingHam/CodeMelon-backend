@@ -14,10 +14,10 @@ public class UserPageQueryDTO implements Serializable {
     private String name;
 
     //页码
-    @Schema(name = "页码", type = "int")
-    private int page;
+    @Schema(name = "页码", type = "Integer")
+    private Integer page;
 
     //每页显示记录数
-    @Schema(name = "每页记录数", type = "int")
-    private int pageSize;
+    @Schema(name = "每页记录数", type = "Integer")
+    private Integer pageSize;
 }

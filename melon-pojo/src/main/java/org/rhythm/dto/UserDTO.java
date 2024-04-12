@@ -1,40 +1,31 @@
 package org.rhythm.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
 public class UserDTO implements Serializable {
+    //ID
+    @Schema(name = "ID", type = "Long")
     private Long id;
     //用户名
+    @Schema(name = "用户名", type = "String")
     private String username;
-    //姓名
-    private String name;
     //密码
+    @Schema(name = "密码", type = "String")
     private String password;
-    //年龄
-    private Short age;
-    //性别
-    private String gender;
-    //身份证号
-    private String idNumber;
     //手机号
+    @Schema(name = "电话号码", type = "String")
     private String phone;
     //邮箱
+    @Schema(name = "邮箱", type = "String")
     private String email;
-    //学历
-    private Short education;
-    //对应病症表id
-    private Long userDiseasesId;
-    //个人履历
-    private String personalExperience;
-    //就业意向
-    private String employmentIntention;
-    //监护人姓名
-    private String guardianName;
-    //监护人手机号
-    private String guardianPhone;
+    //简介
+    @Schema(name = "简介", type = "String")
+    private String introduction;
     //状态
+    @Schema(name = "状态", type = "Integer")
     private Integer status;
 }

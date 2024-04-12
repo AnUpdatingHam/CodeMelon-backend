@@ -48,7 +48,6 @@ public class HelloController {
         UserLoginVO userLoginVO = UserLoginVO.builder()
                 .id(66L)
                 .username("我是响应VO的用户名")
-                .name("我是响应VO的姓名")
                 .token("我是token : %!@$ADERQ!@#FAF(^_^)")
                 .build();
         System.out.println("收到前端Get请求，返回VO对象");
@@ -62,7 +61,6 @@ public class HelloController {
         UserLoginVO userLoginVO = UserLoginVO.builder()
                 .id(66L)
                 .username("我是响应VO的用户名")
-                .name("我是响应VO的姓名")
                 .token("我是token : %!@$ADERQ!@#FAF(^_^)")
                 .build();
         System.out.println("收到前端Get请求，返回VO对象");
@@ -78,7 +76,6 @@ public class HelloController {
         UserLoginVO userLoginVO = UserLoginVO.builder()
                 .id(66L)
                 .username("我是响应VO的用户名")
-                .name("我是响应VO的姓名")
                 .token("我是token : %!@$ADERQ!@#FAF(^_^)")
                 .build();
         System.out.println("收到前端Get请求，返回VO对象");

@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -22,10 +23,12 @@ public class UserLoginVO implements Serializable {
     @Schema(name = "用户名", type = "String")
     private String username;
 
-    @Schema(name = "姓名", type = "String")
-    private String name;
-
     @Schema(name = "Jwt令牌", type = "String")
     private String token;
 
+    @Schema(name = "用户创建时间", type = "LocalDateTime")
+    private LocalDateTime createTime;
+
+    @Schema(name = "用户更新时间", type = "LocalDateTime")
+    private LocalDateTime updateTime;
 }
