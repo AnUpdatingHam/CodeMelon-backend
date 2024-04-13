@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Builder
@@ -41,5 +42,20 @@ public class ArticleVO implements Serializable {
     //更新时间
     @Schema(name = "更新时间", type = "LocalDateTime")
     private LocalDateTime updateTime;
+
+    @Schema(name = "目录编号", type = "String")
+    private String catalogue_numbers;
+    @Schema(name = "目录内容", type = "String")
+    private String catalogue_contents;
+    @Schema(name = "目录位置", type = "String")
+    private String catalogue_positions;
+
+    @Schema(name = "文章标签", type = "String")
+    private String tags;
+
+    @Schema(name = "文章分类名", type = "String")
+    private String category_name;
+    @Schema(name = "分类简介", type = "String")
+    private String category_introduction;
 
 }

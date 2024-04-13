@@ -18,11 +18,21 @@ public class ArticleDTO implements Serializable {
     private String content;
     //分类ID
     @Schema(name = "分类ID", type = "Long")
-    private Long category_id;
+    private Long categoryId;
     //简介
     @Schema(name = "简介", type = "String")
     private String introduction;
+    //标签
+    @Schema(name = "文章标签", type = "String")
+    private String tags;
     //状态
     @Schema(name = "状态", type = "Integer")
     private Integer status; //0被禁用
+
+    @Schema(name = "目录编号", type = "String")
+    private String catalogueNumbers;
+    @Schema(name = "目录内容", type = "String")
+    private String catalogueContents;
+    @Schema(name = "目录位置", type = "String")
+    private String cataloguePositions;
 }

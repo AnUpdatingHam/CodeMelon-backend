@@ -21,9 +21,11 @@ public class Article implements Serializable {
     //内容
     private String content;
     //分类ID
-    private Long category_id;
+    private Long categoryId;
     //简介
     private String introduction;
+    //标签
+    private String tags;
     //状态
     private Integer status; //0被禁用
     //创建时间

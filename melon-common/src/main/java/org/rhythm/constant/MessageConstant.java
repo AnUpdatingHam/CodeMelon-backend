@@ -26,4 +26,7 @@ public class MessageConstant {
 
     public static final String ALREADY_EXIST = "用户已存在";
 
+
+    public static final String ARTICLE_CATEGORY_NOT_FOUNT = "未找到该文章分类";
+
 }

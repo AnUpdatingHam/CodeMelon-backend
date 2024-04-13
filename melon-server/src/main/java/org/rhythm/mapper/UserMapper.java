@@ -17,21 +17,21 @@ public interface UserMapper {
      * @param username
      * @return
      */
-    @Select("select * from User where username = #{username}")
+    @Select("select * from user where username = #{username}")
     User getByUsername(String username);
 
     @AutoFill(value = OperationType.INSERT)
-    @Insert("insert into User (username, password, phone, email, introduction, create_time, update_time, status) " +
+    @Insert("insert into user (username, password, phone, email, introduction, create_time, update_time, status) " +
             "VALUES " +
             "(#{username},#{password},#{phone},#{email},#{introduction},#{createTime},#{updateTime},#{status})")
     void insert(User user);
 
     /**
      * 分页查询
-     * @param UserPageQueryDTO
+     * @param userPageQueryDTO
      * @return
      */
-    Page<User> pageQuery(UserPageQueryDTO UserPageQueryDTO);
+    Page<User> pageQuery(UserPageQueryDTO userPageQueryDTO);
 
     /**
      * 根据主键动态修改属性
@@ -45,6 +45,6 @@ public interface UserMapper {
      * @param id
      * @return
      */
-    @Select("select * from User where id = #{id}")
+    @Select("select * from user where id = #{id}")
     User getById(Long id);
 }

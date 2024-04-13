@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class UserPageQueryDTO implements Serializable {
     //用户姓名
     @Schema(name = "用户名", type = "String")
-    private String name;
+    private String username;
 
     //页码
     @Schema(name = "页码", type = "Integer")

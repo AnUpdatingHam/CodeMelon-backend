@@ -21,6 +21,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
+import java.time.LocalDateTime;
+
 @Slf4j
 @Service
 public class UserServiceImpl implements UserService {
@@ -38,6 +40,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public void add(UserDTO userDTO) {
         User user = new User();
+        user.setCreateTime(LocalDateTime.now());
+        user.setUpdateTime(LocalDateTime.now());
         BeanUtils.copyProperties(userDTO,user);
         user.setStatus(StatusConstant.ENABLE);
         user.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));
@@ -94,6 +98,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void update(UserDTO userDTO) {
         User user = new User();
+        user.setUpdateTime(LocalDateTime.now());
         BeanUtils.copyProperties(userDTO, user);
         userMapper.update(user);
     }
