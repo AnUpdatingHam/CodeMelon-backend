@@ -7,6 +7,8 @@ import org.rhythm.entity.ArticleCatalogue;
 import org.rhythm.entity.ArticleCategory;
 import org.rhythm.enumeration.OperationType;
 
+import java.util.List;
+
 @Mapper
 public interface ArticleCatalogueMapper {
     @AutoFill(value = OperationType.INSERT)
@@ -16,5 +18,8 @@ public interface ArticleCatalogueMapper {
     void insert(ArticleCatalogue catalogue);
 
 
+    @AutoFill(value = OperationType.UPDATE)
     void update(ArticleCatalogue catalogue);
+
+    List<ArticleCategory> list();
 }

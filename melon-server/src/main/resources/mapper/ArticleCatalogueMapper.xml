@@ -11,4 +11,8 @@
         </set>
         where article_id = #{articleId}
     </update>
+    <select id="list" resultType="org.rhythm.entity.ArticleCategory">
+        select * from article_categories
+        where status = 1
+    </select>
 </mapper>

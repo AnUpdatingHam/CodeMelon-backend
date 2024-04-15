@@ -7,6 +7,8 @@ import org.rhythm.entity.ArticleCategory;
 import org.rhythm.entity.User;
 import org.rhythm.result.PageResult;
 
+import java.util.List;
+
 public interface ArticleService {
     void add(ArticleDTO articleDTO);
 
@@ -19,4 +21,6 @@ public interface ArticleService {
     Article getById(Long id);
 
     void update(ArticleDTO articleDTO);
+
+    List<ArticleCategory> getCategories();
 }

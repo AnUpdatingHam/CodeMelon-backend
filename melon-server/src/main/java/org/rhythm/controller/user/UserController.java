@@ -38,31 +38,33 @@ public class UserController {
     /**
      * 登录
      *
-     * @param UserLoginDTO
+     * @param userLoginDTO
      * @return
      */
     @Operation(summary = "用户登录")
     @PostMapping("/login")
-    public Result<UserLoginVO> login(@RequestBody UserLoginDTO UserLoginDTO) {
-        log.info("用户登录：{}", UserLoginDTO);
+    public Result<UserLoginVO> login(@RequestBody UserLoginDTO userLoginDTO) {
+        log.info("用户登录：{}", userLoginDTO);
 
-        User User = userService.login(UserLoginDTO);
+        User user = userService.login(userLoginDTO);
 
         //登录成功后，生成jwt令牌
         Map<String, Object> claims = new HashMap<>();
-        claims.put(JwtClaimsConstant.EMP_ID, User.getId());
+        claims.put(JwtClaimsConstant.USER_ID, user.getId());
         String token = JwtUtil.createJWT(
-                jwtProperties.getAdminSecretKey(),
-                jwtProperties.getAdminTtl(),
+                jwtProperties.getUserSecretKey(),
+                jwtProperties.getUserTtl(),
                 claims);
 
-        UserLoginVO UserLoginVO = org.rhythm.vo.UserLoginVO.builder()
-                .id(User.getId())
-                .username(User.getUsername())
+        UserLoginVO userLoginVO = org.rhythm.vo.UserLoginVO.builder()
+                .id(user.getId())
+                .username(user.getUsername())
                 .token(token)
+                .createTime(user.getCreateTime())
+                .updateTime(user.getUpdateTime())
                 .build();
 
-        return Result.success(UserLoginVO);
+        return Result.success(userLoginVO);
     }
 
     /**
@@ -127,8 +129,9 @@ public class UserController {
     @GetMapping("/{id}")
     public Result<User> getById(@PathVariable Long id){
         log.info("根据id查询用户:{}",id);
-        User User = userService.getById(id);
-        return Result.success(User);
+        User user = userService.getById(id);
+        System.out.println(user);
+        return Result.success(user);
     }
 
     /**

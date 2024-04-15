@@ -13,6 +13,8 @@ import org.rhythm.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 //文章接口
 @CrossOrigin
 @RequestMapping("/user/article")
@@ -37,7 +39,7 @@ public class ArticleController {
     }
 
     /**
-     *新增文章
+     *新增文章分类
      * @param articleCategory
      * @return
      */
@@ -47,6 +49,18 @@ public class ArticleController {
         log.info("新增文章分类: {}", articleCategory);
         articleService.addCategory(articleCategory);
         return Result.success();
+    }
+
+    /**
+     * 查询所有分类
+     * @return
+     */
+    @Operation(summary = "查询所有文章分类")
+    @GetMapping("/category")
+    public Result<List<ArticleCategory>> getCategories(){
+        log.info("查询所有文章分类");
+        List<ArticleCategory> categoryList = articleService.getCategories();
+        return Result.success(categoryList);
     }
 
     /**

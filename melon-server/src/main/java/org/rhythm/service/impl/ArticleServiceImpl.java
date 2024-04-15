@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -108,5 +109,12 @@ public class ArticleServiceImpl implements ArticleService {
                 .positions(articleDTO.getCataloguePositions())
                 .build();
         catalogueMapper.update(catalogue);
+    }
+
+    @Override
+    public List<ArticleCategory> getCategories() {
+        List<ArticleCategory> categoryList = catalogueMapper.list();
+        log.info("ArticleCategoryList : {}", categoryList);
+        return categoryList;
     }
 }

@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ArticleCategory {
-    private Long articleId;
+    private Long id;
     //分类名
     private String name;
     //简介
